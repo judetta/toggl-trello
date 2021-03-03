@@ -16,4 +16,3 @@ for item in summary_report['data']:
     time_entries.update({
         item['title']['project']: str(timedelta(milliseconds=item['time']))})
 
-print(time_entries)
