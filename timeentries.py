@@ -1,7 +1,5 @@
 from togglapiutils import get_summary_report
-import requests
 from datetime import timedelta
-
 
 # Get summary report from Toggl and save projects and spent time in a dict
 time_entries = {}
