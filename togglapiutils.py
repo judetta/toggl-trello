@@ -36,6 +36,25 @@ def get_summary_report():
     }
     response = requests.get(url, headers=headers, params=params)
     if response.status_code != 200:
-        print("Request not successful, error code", response.status_code)
+        print('Request not successful, error code', response.status_code)
     else:
         return response.json()
+
+
+# Function to format output from Toggl
+def ms_to_hours(milliseconds):
+    """Convert milliseconds into format (h)h:mm:ss"""
+    seconds = milliseconds / 1000
+    minutes = seconds // 60
+    seconds -= minutes * 60
+    hours = minutes // 60
+    minutes -= hours * 60
+    if minutes < 10:
+        minutes = '0' + str(int(minutes))
+    else:
+        minutes = str(int(minutes))
+    if seconds < 10:
+        seconds = '0' + str(int(seconds))
+    else:
+        seconds = str(int(seconds))
+    return f'{int(hours)}:{minutes}:{seconds}'
