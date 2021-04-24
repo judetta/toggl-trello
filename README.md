@@ -19,7 +19,7 @@ to see spent time in the same place where everything else.
 
 ### Future ideas
 
-:small_orange_diamond: Adding new courses from Trello automatically as new projects in Toggl Track.
-
+:small_orange_diamond: Compare - do not update time spent values if the new value is the same as old. \
+:small_orange_diamond: Adding new courses from Trello automatically as new projects in Toggl Track. \
 :small_orange_diamond: Archiving of Toggl project when course card in Trello moved to Finished courses list
 
