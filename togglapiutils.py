@@ -28,7 +28,7 @@ headers = {
 
 def get_summary_report():
     """Returns the summary report from Toggl Track in json format."""
-    url = 'https://toggl.com/reports/api/v2/summary'
+    url = 'https://api.track.toggl.com/reports/api/v2/summary'
     params = {
         'user_agent': 'github.com/judetta/toggl-trello',
         'workspace_id': '4998714',
@@ -36,7 +36,7 @@ def get_summary_report():
     }
     response = requests.get(url, headers=headers, params=params)
     if response.status_code != 200:
-        print('Request not successful, error code', response.status_code)
+        print('Toggl report summary request not successful, error code', response.status_code)
     else:
         return response.json()
 
