@@ -36,7 +36,7 @@ def get_trello_cards(list_id):
     url = 'https://api.trello.com/1/lists/' + list_id + '/cards'
     response = requests.get(url, headers=headers, params=params)
     if response.status_code != 200:
-        print('Error' + response.status_code)
+        print('Cannot get Trello cards, error' + response.status_code)
     else:
         return response.json()
 
@@ -46,7 +46,7 @@ def get_card_name(card_id):
     url = 'https://api.trello.com/1/cards/' + card_id + '/?fields=name'
     response = requests.get(url, headers=headers, params=params)
     if response.status_code != 200:
-        print('Error' + response.status_code)
+        print('Cannot get Trello card name, error' + response.status_code)
     else:
         response = response.json()
         return response['name']
