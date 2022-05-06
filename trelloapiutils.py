@@ -68,3 +68,15 @@ def update_time_spent(card_id, time_spent):
     else:
         print('Update failed for ' + get_card_name(card_id))
 
+
+def get_current_time_spent(card_id):
+    """Returns the current value in time spent field by card id"""
+    url = 'https://api.trello.com/1/cards/' + card_id + '/?fields=name&customFieldItems=true'
+    response = requests.get(url, headers=headers, params=params)
+    if response.status_code != 200:
+        print('Error', response.status_code, 'getting custom fields')
+    else:
+        data = response.json()
+        for item in data['customFieldItems']:
+            if item['idCustomField'] == TrelloIds.time_spent_field:
+                return item['value']['text']

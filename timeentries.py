@@ -1,5 +1,5 @@
 from togglapiutils import get_summary_report, ms_to_hours
-from trelloapiutils import TrelloIds, get_trello_cards, update_time_spent
+from trelloapiutils import TrelloIds, get_trello_cards, update_time_spent, get_current_time_spent
 
 
 # Get summary report from Toggl and save projects and spent time in a dict
@@ -22,14 +22,13 @@ for list_id in TrelloIds.active_courses.values():
 
 # Combine card ids and time entries into a single dict for update function
 time_for_card = {}
-for key in cards.keys():
-    try:
-        time_for_card[cards[key]] = time_entries[key]
-    except KeyError: # in case of Trello card without matching Toggl project
-        continue
+for card_name, card_id in cards.items():
+    if (card_name in time_entries.keys() 
+        and time_entries[card_name] != get_current_time_spent(card_id)):
+        time_for_card.update({card_id: time_entries[card_name]})
 
-#time_for_card = {cards[key]: time_entries[key] for key in cards.keys()}
-#print(time_for_card)
-
-for card_id, time_spent in time_for_card.items():
-    update_time_spent(card_id, time_spent)
+if len(time_for_card) == 0:
+    print('There was nothing to update')
+else:
+    for card_id, time_spent in time_for_card.items():
+        update_time_spent(card_id, time_spent)

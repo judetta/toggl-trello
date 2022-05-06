@@ -13,13 +13,13 @@ References:
 
 ### Current features
 
-:white_check_mark: Add time logged for a course in Toggl Track to a custom field on the corresponding Trello card 
-to see spent time in the same place where everything else.
+:white_check_mark: Add time logged for a course in Toggl Track to a custom field on the corresponding Trello card. \
+:white_check_mark: Compare - do not update time spent values if the new value is the same as old.
 
 
 ### Future ideas
 
-:small_orange_diamond: Compare - do not update time spent values if the new value is the same as old. \
-:small_orange_diamond: Adding new courses from Trello automatically as new projects in Toggl Track. \
-:small_orange_diamond: Archiving of Toggl project when course card in Trello moved to Finished courses list
+~~:small_orange_diamond: Compare - do not update time spent values if the new value is the same as old.~~ \
+:small_orange_diamond: Add new courses from Trello automatically as new projects in Toggl Track. \
+:small_orange_diamond: Archive Toggl project when course card in Trello is moved to Finished courses list.
 
